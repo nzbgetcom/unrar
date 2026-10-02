@@ -1,0 +1,19 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: nzbgetcom/build-unpackers/.github/workflows/build.yml@main
+    permissions:
+      contents: write
+      actions: write
+    with:
+      unpackers: unrar
+      unrar-version: "7.23"
+      unrar-src-version: "7.2.7"
+      release-tag: v7.23
